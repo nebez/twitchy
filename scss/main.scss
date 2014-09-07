@@ -1,0 +1,10 @@
+@import 'normalize';
+
+// Apply a natural box model layout to all elemnts
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
