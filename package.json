@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-autoprefixer": "0.0.10",
+    "gulp-clean": "^0.3.1",
+    "gulp-connect": "^2.0.6",
+    "gulp-jshint": "^1.8.4",
+    "gulp-sass": "^0.7.3",
+    "gulp-util": "^3.0.1",
+    "jshint-stylish": "^0.4.0"
+  }
+}

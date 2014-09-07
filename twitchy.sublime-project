@@ -1,0 +1,16 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"name": "Twitchy",
+			"follow_symlinks": true
+		}
+	],
+	"settings":
+	[
+		{
+			"translate_tabs_to_spaces": false
+		}
+	]
+}
