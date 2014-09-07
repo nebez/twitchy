@@ -1,0 +1,5 @@
+# What the hell, gulp-jshint? Using relative or absolute paths won't ignore files, so we have to use a wildcard directory...
+
+**/src/js/jquery-1.11.1.min.js
+**/src/js/knockout-3.2.0.js
+**/src/js/sammy-0.7.6.min.js
