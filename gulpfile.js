@@ -50,6 +50,8 @@ gulp.task('html', function() {
 
 gulp.task('scripts', function() {
 	return gulp.src('./src/js/**/*.js')
+		.pipe(jshint())
+		.pipe(jshint.reporter(stylish, { verbose: true }))
 		.pipe(connect.reload())
 		.on('error', util.log);
 });
