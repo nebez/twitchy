@@ -25,8 +25,8 @@
 			</nav>
 
 			<section class="content">
-				<!-- ko with: subTabs -->
-				<ul class="horizontal" data-bind="foreach: $root.subTabs">
+				<!-- ko with: listSubTabs -->
+				<ul class="horizontal" data-bind="foreach: $data">
 					<li data-bind="text: $data,
 						css: $root.subNavLinkCss($data),
 						click: $root.goToSubTab"></li>

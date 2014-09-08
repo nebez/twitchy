@@ -4,11 +4,19 @@ function TwitchyViewModel() {
 	// Members
 	var self = this;
 	self.tabs = ['Search', 'Channels', 'Games'];
-	self.subTabs = ko.observable();
+	self.subTabs = {
+		Search: ['Channels', 'Streams', 'Games'],
+		Channels: ['Favorites', 'Featured', 'Popular'],
+		Games: []
+	};
 	self.currentTab = ko.observable();
 	self.currentSubTab = ko.observable();
 	self.currentStream = ko.observable();
 	self.streamList = ko.observable();
+
+	self.listSubTabs = ko.pureComputed(function() {
+		return self.subTabs[self.currentTab()];
+	});
 
 	// Behaviours
 	self.goToTab = function(tab) {
@@ -48,23 +56,34 @@ function TwitchyViewModel() {
 		// Search routes
 		this.get('#Search', function() {
 			self.currentTab('Search');
-			self.subTabs(['Channels', 'Streams', 'Games']);
 			self.currentSubTab('Channels');
+			self.currentStream(null);
+			self.streamList(null);
+		});
+
+		this.get('#Search/:query/:filter', function() {
+			self.currentTab('Search');
+			self.currentSubTab(this.params.filter);
 			self.currentStream(null);
 		});
 
 		// Channel routes
 		this.get('#Channels', function() {
 			self.currentTab('Channels');
-			self.subTabs(['Favorites', 'Featured', 'Popular']);
 			self.currentSubTab('Favorites');
+			self.currentStream(null);
+		});
+
+		this.get('#Channels/:filter', function() {
+			self.currentTab('Channels');
+			self.currentSubTab(this.params.filter);
 			self.currentStream(null);
 		});
 
 		// Game routes
 		this.get('#Games', function() {
-			self.subTabs(null);
 			self.currentTab('Games');
+			self.currentSubTab(null);
 			self.currentStream(null);
 		});
 
