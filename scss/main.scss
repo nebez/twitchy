@@ -36,6 +36,8 @@ header.logo {
 nav.main {
 	position: relative;
 	z-index: 0;
+	float: left;
+	margin-top: 45px;
 
 	.link {
 		display: block;
@@ -51,6 +53,11 @@ nav.main {
 		cursor: pointer;
 
 		transition: all 450ms ease;
+
+		&:hover {
+			color: #aaa;
+			background-color: #6240a1;
+		}
 
 		&.active {
 			// Position us above the border
@@ -81,5 +88,43 @@ nav.main {
 		border: 4px solid #fff;
 		box-shadow: 0px 0px 30px 15px rgba(#101010, 0.75);
 		transition: all 450ms ease;
+	}
+}
+
+section.content {
+	margin-left: 250px;
+}
+
+ul.horizontal {
+	font-size: 0px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+	> li {
+		display: inline-block;
+	}
+}
+
+li.tab-1-5 {
+	font-weight: 600;
+	text-transform: uppercase;
+	width: 20%;
+	font-size: 14px;
+	padding-left: 8px;
+	padding-bottom: 5px;
+	color: #6a6a6a;
+	border-bottom: 2px solid #6a6a6a;
+	cursor: pointer;
+
+	transition: all 300ms ease;
+
+	&:hover {
+		border-color: #ccc;
+	}
+
+	&.active {
+		color: #fff;
+		border-color: #fff;
 	}
 }

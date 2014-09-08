@@ -23,8 +23,17 @@
 				<!-- /ko -->
 				<div class="active-border"></div>
 			</nav>
-		</div>
 
+			<section class="content">
+				<!-- ko with: subTabs -->
+				<ul class="horizontal" data-bind="foreach: $root.subTabs">
+					<li data-bind="text: $data,
+						css: $root.subNavLinkCss($data),
+						click: $root.goToSubTab"></li>
+				</ul>
+				<!-- /ko -->
+			</section>
+		</div>
 
 		<table data-bind="with: streamList">
 			<thead>
