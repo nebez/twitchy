@@ -3,28 +3,46 @@
 	<head>
 		<meta charset="utf-8" />
 
-		<title>Twitchy</title>
+		<title>twitchy</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
 		<link href="css/main.css" type="text/css" rel="stylesheet" />
 	</head>
 	<body>
+		<div class="container">
+			<header class="logo">
+				twitchy
+			</header>
+
+			<nav class="main">
+				<!-- ko foreach: tabs -->
+				<div data-bind="text: $data,
+					css: $root.navLinkCss($data, $index()),
+					click: $root.goToTab"></div>
+				<!-- /ko -->
+				<div class="active-border"></div>
+			</nav>
+		</div>
+
+
 		<table data-bind="with: streamList">
 			<thead>
 				<tr>
-					<th>_id</th>
+					<th>viewers</th>
 					<th>channel.display_name</th>
 				</tr>
 			</thead>
 			<tbody data-bind="foreach: streams">
 				<tr>
-					<td data-bind="text: _id"></td>
+					<td data-bind="text: viewers"></td>
 					<td data-bind="text: channel.display_name"></td>
 				</tr>
 			</tbody>
 		</table>
+
 		<script src="js/jquery-1.11.1.min.js"></script>
-		<script src="js/knockout-3.2.0.js"></script>
+		<script src="js/knockout-3.2.0.min.js"></script>
 		<script src="js/sammy-0.7.6.min.js"></script>
 		<script src="js/app.js"></script>
 	</body>

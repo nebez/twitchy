@@ -8,3 +8,78 @@ html {
 *, *:before, *:after {
 	box-sizing: inherit;
 }
+
+html {
+	background-color: #101010;
+	font-family: 'Open Sans', sans-serif;
+	color: #fff;
+	font-weight: 100;
+}
+
+.container {
+	width: 95%;
+	margin: 0 auto;
+}
+
+header.logo {
+	width: 203px;
+	height: 80px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background-image: url('../img/twitchy.png');
+	background-repeat: no-repeat;
+	// Hide the text.
+	font-size: 0px;
+	color: #101010;
+}
+
+nav.main {
+	position: relative;
+	z-index: 0;
+
+	.link {
+		display: block;
+		width: 200px;
+		height: 90px;
+		font-size: 30px;
+		line-height: 125px;
+		padding-left: 10px;
+		text-decoration: none;
+		color: #777;
+		background-color: #53338e;
+		transform: scale(0.90);
+		cursor: pointer;
+
+		transition: all 450ms ease;
+
+		&.active {
+			// Position us above the border
+			position: relative;
+			z-index: 10;
+			background-color: #7f53cf;
+			color: #fff;
+			transform: scale(1);
+
+			// Generate a few item border states, increase this number if we end
+			// up with more nav items
+			@for $i from 0 through 5
+			{
+				&.item-#{$i} ~ .active-border {
+					top: -8px + ($i * 90);
+				}
+			}
+		}
+	}
+
+	.active-border {
+		position: absolute;
+		z-index: 5;
+		top: -8px;
+		left: -8px;
+		width: 216px;
+		height: 106px;
+		border: 4px solid #fff;
+		box-shadow: 0px 0px 30px 15px rgba(#101010, 0.75);
+		transition: all 450ms ease;
+	}
+}
