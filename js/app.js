@@ -5,7 +5,7 @@ function TwitchyViewModel() {
 	var self = this;
 	self.tabs = ['Games', 'Channels', 'Settings'];
 	self.subTabs = {
-		Channels: ['Favorites', 'Featured', 'Popular'],
+		Channels: ['Featured', 'Popular', 'Favorites'],
 		Games: [],
 		Settings: []
 	};
@@ -66,6 +66,7 @@ function TwitchyViewModel() {
 		var css = {};
 		css.backgroundImage = 'url("' + data.preview.large + '")';
 		css.backgroundSize = 'cover';
+		css.backgroundPosition = '50% 50%';
 
 		return css;
 	};
@@ -147,8 +148,8 @@ function TwitchyViewModel() {
 	var router = new Sammy(function() {
 		// Channel routes
 		this.get('#Channels', function() {
-			self.openTab('Channels', 'Favorites');
-			self.listChannels('Favorites');
+			self.openTab('Channels', 'Featured');
+			self.listChannels('Featured');
 		});
 
 		this.get('#Channels/:filter', function() {
