@@ -1,4 +1,11 @@
+// Media query declarations for break points
+$breakpoint-sm: 640px;
+$breakpoint-md: 1024px;
+$breakpoint-lg: 1366px;
+
+
 @import 'normalize';
+@import 'mixins';
 
 // Apply a natural box model layout to all elemnts
 html {
@@ -126,5 +133,27 @@ li.tab-1-5 {
 	&.active {
 		color: #fff;
 		border-color: #fff;
+	}
+}
+
+.stream-list {
+	@include clearfix;
+
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+.stream-list-item {
+	position: relative;
+	float: left;
+	width: 350px;
+	height: 160px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+
+	&.big {
+		@include clearfix;
+		width: 710px;
+		height: 330px;
 	}
 }

@@ -25,30 +25,24 @@
 			</nav>
 
 			<section class="content">
-				<!-- ko with: listSubTabs -->
-				<ul class="horizontal" data-bind="foreach: $data">
+				<ul class="horizontal" data-bind="foreach: listSubTabs">
 					<li data-bind="text: $data,
 						css: $root.subNavLinkCss($data),
 						click: $root.goToSubTab"></li>
 				</ul>
+
+				<div class="stream-list" data-bind="with: streamList">
+				<!-- ko foreach: $root.streamList -->
+					<div data-bind="css: $root.streamItemCss($index()),
+						style: $root.streamItemStyle($data)">
+						<div class="stream-info" data-bind="text: channel.display_name"></div>
+					</div>
 				<!-- /ko -->
+				</div>
+
 			</section>
 		</div>
 
-		<table data-bind="with: streamList">
-			<thead>
-				<tr>
-					<th>viewers</th>
-					<th>channel.display_name</th>
-				</tr>
-			</thead>
-			<tbody data-bind="foreach: streams">
-				<tr>
-					<td data-bind="text: viewers"></td>
-					<td data-bind="text: channel.display_name"></td>
-				</tr>
-			</tbody>
-		</table>
 
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/knockout-3.2.0.min.js"></script>
