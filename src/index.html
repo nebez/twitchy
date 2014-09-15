@@ -35,7 +35,10 @@
 				<!-- ko foreach: $root.streamList -->
 					<div data-bind="css: $root.streamItemCss($index()),
 						style: $root.streamItemStyle($data)">
-						<div class="stream-info" data-bind="text: channel.display_name"></div>
+						<div class="stream-info">
+							<div class="stream-title" data-bind="text: channel.display_name"></div>
+							<div class="stream-details">playing <b data-bind="text: game"></b></div>
+						</div>
 					</div>
 				<!-- /ko -->
 				</div>
