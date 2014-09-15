@@ -151,7 +151,7 @@ li.tab-1-5 {
 	margin-right: 5px;
 	margin-bottom: 5px;
 	cursor: pointer;
-	opacity: 0.6;
+	opacity: 0.5;
 	border: 3px solid #101010; // Blend the border into the background color
 
 	transition: transform 300ms ease,
@@ -159,8 +159,15 @@ li.tab-1-5 {
 		border 300ms ease;
 
 	&.big {
-		@include clearfix;
 		width: 705px;
+		height: 325px;
+	}
+
+	&.wide {
+		width: 705px;
+	}
+
+	&.tall {
 		height: 325px;
 	}
 
