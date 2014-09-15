@@ -177,8 +177,8 @@ li.tab-1-5 {
 	left: 0px;
 	bottom: 0px;
 	right: 0px;
-	padding: 15px;
-	background-color: rgba(0, 0, 0, 0.6);
+	padding: 5px 15px;
+	background-color: rgba(#000, 0.6);
 	color: #ddd;
 
 	.stream-title {
@@ -190,4 +190,28 @@ li.tab-1-5 {
 		font-size: 12px;
 		@include ellipsis;
 	}
+}
+
+.stream-viewers {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	display: inline;
+	font-size: 10px;
+	background-color: rgba(#000, 0.5);
+	padding: 5px 10px;
+	border-radius: 50px;
+
+	&:before {
+		content: '';
+		display: inline-block;
+		width: 6px;
+		height: 6px;
+		margin-right: 5px;
+		background-color: red;
+		vertical-align: 5%;
+		border-radius: 10px;
+	}
+
+	@include ellipsis;
 }
