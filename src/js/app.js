@@ -1,13 +1,13 @@
 /* jshint strict: false */
-/* global window,ko,Sammy */
+/* global window,$,ko,Sammy */
 function TwitchyViewModel() {
 	// Members
 	var self = this;
-	self.tabs = ['Search', 'Channels', 'Games'];
+	self.tabs = ['Games', 'Channels', 'Settings'];
 	self.subTabs = {
-		Search: ['Channels', 'Streams', 'Games'],
 		Channels: ['Favorites', 'Featured', 'Popular'],
-		Games: []
+		Games: [],
+		Settings: []
 	};
 	self.currentTab = ko.observable();
 	self.currentSubTab = ko.observable();
@@ -51,48 +51,129 @@ function TwitchyViewModel() {
 		}
 	};
 
+	self.streamItemCss = function(index) {
+		if(index === 0)
+		{
+			return 'stream-list-item big';
+		}
+		else
+		{
+			return 'stream-list-item';
+		}
+	};
+
+	self.streamItemStyle = function(data) {
+		var css = {};
+		css.backgroundImage = 'url("' + data.preview.large + '")';
+		css.backgroundSize = 'cover';
+
+		return css;
+	};
+
+	self.openTab = function(tabName, subTabName) {
+		self.currentTab(tabName);
+		if(subTabName)
+		{
+			self.currentSubTab(subTabName);
+		}
+		else
+		{
+			self.currentSubTab(null);
+		}
+		self.currentStream(null);
+		self.streamList(null);
+	};
+
+	self.listChannels = function(filter) {
+		if(filter === 'Favorites')
+		{
+			// Get the list of favorites from storage and hit the API
+
+		}
+		if(filter === 'Popular')
+		{
+			self.populateStreamList('streams');
+		}
+		if(filter === 'Featured')
+		{
+			self.populateStreamList('streams/featured');
+		}
+	};
+
+	self.listGames = function(filter) {
+		if(filter)
+		{
+			console.log(filter);
+		}
+		else
+		{
+			console.log('all');
+		}
+	};
+
+	self.populateStreamList = function(endpoint) {
+		// Go through their settings to create the params, but for now just hard
+		// code it
+		var params = '';
+		params += '?limit=17';
+
+		$.ajax({
+			url: 'https://api.twitch.tv/kraken/' + endpoint + params,
+			type: 'GET',
+			dataType: 'jsonp'
+		})
+		.done(function(response) {
+			var streams = [];
+			if(response.streams)
+			{
+				streams = response.streams;
+			}
+			else if(response.featured)
+			{
+				for (var i = response.featured.length - 1; i >= 0; i--) {
+					streams.push(response.featured[i].stream);
+				}
+			}
+			self.streamList(streams);
+			console.table(streams);
+		});
+	};
+
+	self.log = function(data) {
+		console.log(data);
+	};
+
 	// Hash Router
 	var router = new Sammy(function() {
-		// Search routes
-		this.get('#Search', function() {
-			self.currentTab('Search');
-			self.currentSubTab('Channels');
-			self.currentStream(null);
-			self.streamList(null);
-		});
-
-		this.get('#Search/:query/:filter', function() {
-			self.currentTab('Search');
-			self.currentSubTab(this.params.filter);
-			self.currentStream(null);
-		});
-
 		// Channel routes
 		this.get('#Channels', function() {
-			self.currentTab('Channels');
-			self.currentSubTab('Favorites');
-			self.currentStream(null);
+			self.openTab('Channels', 'Favorites');
+			self.listChannels('Favorites');
 		});
 
 		this.get('#Channels/:filter', function() {
-			self.currentTab('Channels');
-			self.currentSubTab(this.params.filter);
-			self.currentStream(null);
+			self.openTab('Channels', this.params.filter);
+			self.listChannels(this.params.filter);
 		});
 
 		// Game routes
 		this.get('#Games', function() {
-			self.currentTab('Games');
-			self.currentSubTab(null);
-			self.currentStream(null);
+			self.openTab('Games');
+			self.listGames();
 		});
 
 		this.get('#Games/:name', function() {
-
+			self.openTab('Games');
+			self.listGames(this.params.name);
 		});
 
-		// Default route
+		this.get('#Settings', function() {
+			self.openTab('Settings');
+		});
+
+		// Default catch-all route
 		this.get('', function() {
+			// Start with #Channels
 			this.app.runRoute('get', '#Channels');
 		});
 	});
@@ -102,20 +183,3 @@ function TwitchyViewModel() {
 }
 
 ko.applyBindings(new TwitchyViewModel());
-
-/*
-	self.openStream = function(stream) { window.location.hash = stream.name; };
-	self.listStreams = function() {
-		$.ajax({
-			url: 'https://api.twitch.tv/kraken/streams',
-			type: 'GET',
-			dataType: 'jsonp'
-		})
-		.done(function(response) {
-			self.streamList(response);
-			console.log(response);
-		});
-	};
-
-	self.listStreams();
- */
