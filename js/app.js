@@ -56,6 +56,14 @@ function TwitchyViewModel() {
 		{
 			return 'stream-list-item big';
 		}
+		else if(index === 1 || index === 2)
+		{
+			return 'stream-list-item tall';
+		}
+		else if(index === 3 || index === 4)
+		{
+			return 'stream-list-item wide';
+		}
 		else
 		{
 			return 'stream-list-item';
@@ -64,6 +72,8 @@ function TwitchyViewModel() {
 
 	self.streamItemStyle = function(data) {
 		var css = {};
+
+		// Get the large preview and cover the div with it
 		css.backgroundImage = 'url("' + data.preview.large + '")';
 		css.backgroundSize = 'cover';
 		css.backgroundPosition = '50% 50%';
@@ -116,7 +126,7 @@ function TwitchyViewModel() {
 		// Go through their settings to create the params, but for now just hard
 		// code it
 		var params = '';
-		params += '?limit=17';
+		params += '?limit=13';
 
 		$.ajax({
 			url: 'https://api.twitch.tv/kraken/' + endpoint + params,
@@ -148,8 +158,8 @@ function TwitchyViewModel() {
 	var router = new Sammy(function() {
 		// Channel routes
 		this.get('#Channels', function() {
-			self.openTab('Channels', 'Featured');
-			self.listChannels('Featured');
+			self.openTab('Channels', 'Popular');
+			self.listChannels('Popular');
 		});
 
 		this.get('#Channels/:filter', function() {
