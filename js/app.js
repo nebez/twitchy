@@ -9,6 +9,7 @@ function TwitchyViewModel() {
 		Games: [],
 		Settings: []
 	};
+	self.silenceRoute = false;
 	self.currentTab = ko.observable();
 	self.currentSubTab = ko.observable();
 	self.currentStream = ko.observable();
@@ -16,6 +17,17 @@ function TwitchyViewModel() {
 
 	self.listSubTabs = ko.pureComputed(function() {
 		return self.subTabs[self.currentTab()];
+	});
+
+	self.streamPlayerCss = ko.pureComputed(function() {
+		if(self.currentStream() !== null)
+		{
+			return 'stream-player active';
+		}
+		else
+		{
+			return 'stream-player';
+		}
 	});
 
 	// Behaviours
@@ -26,6 +38,10 @@ function TwitchyViewModel() {
 
 	self.goToSubTab = function(subTab) {
 		window.location.hash = self.currentTab() + '/' + subTab;
+	};
+
+	self.goToStream = function(stream) {
+		window.location.hash = 'Streams/' + stream.channel.name;
 	};
 
 	// Generates the css necessary for tabbed navigation
@@ -52,22 +68,20 @@ function TwitchyViewModel() {
 	};
 
 	self.streamItemCss = function(index) {
-		if(index === 0)
+		var className = 'stream-list-item';
+
+		if(index % 5 === 0)
 		{
-			return 'stream-list-item big';
+			className += ' big';
+
+			// Push odd big tiles to the right
+			if(index % 2 === 1)
+			{
+				className += ' right';
+			}
 		}
-		else if(index === 1 || index === 2)
-		{
-			return 'stream-list-item tall';
-		}
-		else if(index === 3 || index === 4)
-		{
-			return 'stream-list-item wide';
-		}
-		else
-		{
-			return 'stream-list-item';
-		}
+
+		return className;
 	};
 
 	self.streamItemStyle = function(data) {
@@ -79,6 +93,22 @@ function TwitchyViewModel() {
 		css.backgroundPosition = '50% 50%';
 
 		return css;
+	};
+
+	self.streamObjectData = function(channel) {
+		var attr = {};
+
+		attr.data = 'http://www.twitch.tv/widgets/live_embed_player.swf?channel=' + channel;
+
+		return attr;
+	};
+
+	self.streamFlashVars = function(channel) {
+		var attr = {};
+
+		attr.value = 'hostname=www.twitch.tv&channel=' + channel + '&auto_play=true&start_volume=25';
+
+		return attr;
 	};
 
 	self.openTab = function(tabName, subTabName) {
@@ -126,7 +156,7 @@ function TwitchyViewModel() {
 		// Go through their settings to create the params, but for now just hard
 		// code it
 		var params = '';
-		params += '?limit=13';
+		params += '?limit=15';
 
 		$.ajax({
 			url: 'https://api.twitch.tv/kraken/' + endpoint + params,
@@ -150,12 +180,48 @@ function TwitchyViewModel() {
 		});
 	};
 
+	self.openStream = function(channel) {
+		self.currentStream(channel);
+	};
+
+	self.closeStream = function() {
+		// Find out where to move us to
+		var newHash = '#';
+		if(self.currentTab() !== undefined)
+		{
+			newHash += self.currentTab();
+		}
+		if(self.currentSubTab() !== undefined)
+		{
+			newHash += '/' + self.currentSubTab();
+		}
+
+		// Destroy the current stream obj
+		self.currentStream(null);
+
+		// Re-route us, but signal a quiet route if it's an old route
+		if(newHash !== '#')
+		{
+			self.silenceRoute = true;
+		}
+		window.location.hash = newHash;
+	};
+
 	self.log = function(data) {
 		console.log(data);
 	};
 
 	// Hash Router
 	var router = new Sammy(function() {
+		// Before filters
+		this.before(/.*/, function() {
+			// Is this route being silenced?
+			if(self.silenceRoute)
+			{
+				self.silenceRoute = false;
+				return false;
+			}
+		});
 		// Channel routes
 		this.get('#Channels', function() {
 			self.openTab('Channels', 'Popular');
@@ -180,6 +246,11 @@ function TwitchyViewModel() {
 
 		this.get('#Settings', function() {
 			self.openTab('Settings');
+		});
+
+		// Stream routes
+		this.get('#Streams/:stream', function() {
+			self.openStream(this.params.stream);
 		});
 
 		// Default catch-all route
