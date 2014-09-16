@@ -182,6 +182,11 @@ function TwitchyViewModel() {
 
 	self.openStream = function(channel) {
 		self.currentStream(channel);
+
+		// Bind to the beforeunload event
+		$(window).on('beforeunload', function() {
+			return 'Leave the stream?';
+		});
 	};
 
 	self.closeStream = function() {
@@ -205,6 +210,9 @@ function TwitchyViewModel() {
 			self.silenceRoute = true;
 		}
 		window.location.hash = newHash;
+
+		// Unbind the beforeunload event
+		$(window).off('beforeunload');
 	};
 
 	self.log = function(data) {
