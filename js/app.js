@@ -1,6 +1,6 @@
 /* jshint strict: false */
-/* global window,$,ko,Sammy */
-function TwitchyViewModel() {
+/* global document,window,$,ko,Sammy */
+var TwitchyViewModel = function() {
 	// Members
 	var self = this;
 	self.tabs = ['Games', 'Channels', 'Settings'];
@@ -176,27 +176,21 @@ function TwitchyViewModel() {
 				}
 			}
 			self.streamList(streams);
-			console.table(streams);
 		});
 	};
 
 	self.openStream = function(channel) {
 		self.currentStream(channel);
-
-		// Bind to the beforeunload event
-		$(window).on('beforeunload', function() {
-			return 'Leave the stream?';
-		});
 	};
 
 	self.closeStream = function() {
 		// Find out where to move us to
 		var newHash = '#';
-		if(self.currentTab() !== undefined)
+		if(self.currentTab() !== undefined && self.currentTab() !== null)
 		{
 			newHash += self.currentTab();
 		}
-		if(self.currentSubTab() !== undefined)
+		if(self.currentSubTab() !== undefined && self.currentSubTab() !== null)
 		{
 			newHash += '/' + self.currentSubTab();
 		}
@@ -210,9 +204,6 @@ function TwitchyViewModel() {
 			self.silenceRoute = true;
 		}
 		window.location.hash = newHash;
-
-		// Unbind the beforeunload event
-		$(window).off('beforeunload');
 	};
 
 	self.log = function(data) {
@@ -270,6 +261,25 @@ function TwitchyViewModel() {
 
 	// Run the router
 	router.run();
-}
+};
 
-ko.applyBindings(new TwitchyViewModel());
+var viewModel = new TwitchyViewModel();
+
+ko.applyBindings(viewModel);
+
+// Allow streams to be closed with the esc key
+$(document).on('keydown', function(e) {
+	if(e.keyCode === 27 && viewModel.currentStream() !== null)
+	{
+		viewModel.closeStream();
+	}
+});
+
+
+// Bind to the beforeunload event
+$(window).on('beforeunload', function() {
+	if(viewModel.currentStream() !== null)
+	{
+		return 'Leave Twitchy?';
+	}
+});
