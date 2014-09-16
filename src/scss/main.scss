@@ -23,6 +23,10 @@ html {
 	font-weight: 100;
 }
 
+body::-webkit-scrollbar { 
+    display: none; 
+}
+
 .container {
 	width: 95%;
 	max-width: 1900px;
@@ -151,12 +155,10 @@ li.tab-1-5 {
 	width: 25%;
 	height: 160px;
 	cursor: pointer;
-	opacity: 0.5;
+	opacity: 0.75;
 	border: 5px solid #101010; // Blend the border into the background color
 
-	transition: transform 300ms ease,
-		opacity 300ms ease,
-		border 300ms ease;
+	transition: all 300ms ease;
 
 	&.big {
 		width: 50%;
@@ -243,10 +245,11 @@ li.tab-1-5 {
 	.close {
 		position: absolute;
 		z-index: 50;
-		top: -5px;
-		right: -5px;
+		top: -10px;
+		right: -10px;
 		padding: 0px 9px;
 		font-size: 20px;
+		font-weight: 600;
 		color: #fff;
 		background-color: #000;
 		border: 2px solid #fff;
@@ -255,6 +258,7 @@ li.tab-1-5 {
 
 	.video-wrapper {
 		position: relative;
+		z-index: 20;
 		height: 100%;
 		width: 100%;
 	}
@@ -262,6 +266,7 @@ li.tab-1-5 {
 	.video-wrapper object,
 	.video-wrapper embed,  {
 		position: absolute;
+		z-index: 20;
 		top: 0;
 		left: 0;
 		width: 100%;
