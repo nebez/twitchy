@@ -25,6 +25,7 @@ html {
 
 .container {
 	width: 95%;
+	max-width: 1900px;
 	margin: 0 auto;
 }
 
@@ -141,34 +142,29 @@ li.tab-1-5 {
 
 	margin-top: 20px;
 	margin-bottom: 50px;
+	font-size: 0px;
 }
 
 .stream-list-item {
 	position: relative;
 	float: left;
-	width: 350px;
+	width: 25%;
 	height: 160px;
-	margin-right: 5px;
-	margin-bottom: 5px;
 	cursor: pointer;
 	opacity: 0.5;
-	border: 3px solid #101010; // Blend the border into the background color
+	border: 5px solid #101010; // Blend the border into the background color
 
 	transition: transform 300ms ease,
 		opacity 300ms ease,
 		border 300ms ease;
 
 	&.big {
-		width: 705px;
-		height: 325px;
+		width: 50%;
+		height: 320px;
 	}
 
-	&.wide {
-		width: 705px;
-	}
-
-	&.tall {
-		height: 325px;
+	&.right {
+		float: right;
 	}
 
 	&:hover {
@@ -191,6 +187,7 @@ li.tab-1-5 {
 	.stream-title {
 		font-weight: 600;
 		font-size: 18px;
+		@include ellipsis;
 	}
 
 	.stream-details {
@@ -221,4 +218,53 @@ li.tab-1-5 {
 	}
 
 	@include ellipsis;
+}
+
+.stream-player {
+	position: fixed;
+	z-index: 15;
+	left: 50%;
+	top: 50%;
+	width: 0%;
+	height: 0%;
+	background-color: rgba(#000, 0.95);
+	opacity: 0;
+
+	transition: all 300ms ease;
+
+	&.active {
+		opacity: 1;
+		left: 1%;
+		top: 2%;
+		width: 98%;
+		height: 96%;
+	}
+
+	.close {
+		position: absolute;
+		z-index: 50;
+		top: -5px;
+		right: -5px;
+		padding: 0px 9px;
+		font-size: 20px;
+		color: #fff;
+		background-color: #000;
+		border: 2px solid #fff;
+		cursor: pointer;
+	}
+
+	.video-wrapper {
+		position: relative;
+		height: 100%;
+		width: 100%;
+	}
+
+	.video-wrapper object,
+	.video-wrapper embed,  {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 }

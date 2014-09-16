@@ -17,9 +17,9 @@
 
 			<nav class="main">
 				<!-- ko foreach: tabs -->
-				<div data-bind="text: $data,
-					css: $root.navLinkCss($data, $index()),
-					click: $root.goToTab"></div>
+					<div data-bind="text: $data,
+						css: $root.navLinkCss($data, $index()),
+						click: $root.goToTab"></div>
 				<!-- /ko -->
 				<div class="active-border"></div>
 			</nav>
@@ -34,7 +34,8 @@
 				<div class="stream-list" data-bind="with: streamList">
 				<!-- ko foreach: $root.streamList -->
 					<div data-bind="css: $root.streamItemCss($index()),
-						style: $root.streamItemStyle($data)">
+						style: $root.streamItemStyle($data),
+						click: $root.goToStream">
 						<div class="stream-viewers" data-bind="text: viewers"></div>
 						<div class="stream-info">
 							<div class="stream-title" data-bind="text: channel.display_name"></div>
@@ -42,6 +43,27 @@
 						</div>
 					</div>
 				<!-- /ko -->
+				</div>
+
+				<div data-bind="css: streamPlayerCss, with: currentStream">
+					<div class="close" data-bind="click: $root.closeStream">&times;</div>
+
+					<div class="video-wrapper">
+
+						<object type="application/x-shockwave-flash"
+										height="300"
+										width="300"
+										id="live_embed_player_flash"
+										bgcolor="#000000"
+										data-bind="attr: $root.streamObjectData($data)">
+							<param name="allowFullScreen" value="true" />
+							<param name="allowScriptAccess" value="always" />
+							<param name="allowNetworking" value="all" />
+							<param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" />
+							<param name="flashvars" data-bind="attr: $root.streamFlashVars($data)" />
+						</object>
+
+					</div>
 				</div>
 
 			</section>
