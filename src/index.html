@@ -31,19 +31,41 @@
 						click: $root.goToSubTab"></li>
 				</ul>
 
-				<div class="stream-list" data-bind="with: streamList">
-				<!-- ko foreach: $root.streamList -->
-					<div data-bind="css: $root.streamItemCss($index()),
-						style: $root.streamItemStyle($data),
-						click: $root.goToStream">
-						<div class="stream-viewers" data-bind="text: viewers"></div>
-						<div class="stream-info">
-							<div class="stream-title" data-bind="text: channel.display_name"></div>
-							<div class="stream-details">playing <b data-bind="text: game"></b></div>
+				<!-- ko with: streamList -->
+					<div class="stream-list">
+					<!-- ko foreach: $root.streamList -->
+						<div data-bind="css: $root.streamItemCss($index()),
+							style: $root.streamItemStyle($data),
+							click: $root.goToStream">
+
+							<div class="stream-viewers" data-bind="text: viewers"></div>
+							<div class="stream-info">
+								<div class="stream-title" data-bind="text: channel.display_name"></div>
+								<div class="stream-details">playing <b data-bind="text: game"></b></div>
+							</div>
+
 						</div>
+					<!-- /ko -->
 					</div>
 				<!-- /ko -->
-				</div>
+
+				<!-- ko with: gameList -->
+					<div class="game-list">
+					<!-- ko foreach: $root.gameList -->
+						<div data-bind="css: $root.gameItemCss($index()),
+							style: $root.gameItemStyle($data),
+							click: $root.goToGame">
+
+							<div class="stream-viewers" data-bind="text: viewers"></div>
+							<div class="stream-info">
+								<div class="stream-title" data-bind="text: game.name"></div>
+								<div class="stream-details"><b data-bind="text: channels"></b> streamers</div>
+							</div>
+
+						</div>
+					<!-- /ko -->
+					</div>
+				<!-- /ko -->
 
 				<div data-bind="css: streamPlayerCss, with: currentStream">
 					<div class="close" data-bind="click: $root.closeStream">&times;</div>

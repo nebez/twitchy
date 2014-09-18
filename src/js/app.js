@@ -14,6 +14,7 @@ var TwitchyViewModel = function() {
 	self.currentSubTab = ko.observable();
 	self.currentStream = ko.observable();
 	self.streamList = ko.observable();
+	self.gameList = ko.observable();
 
 	self.listSubTabs = ko.pureComputed(function() {
 		return self.subTabs[self.currentTab()];
@@ -42,6 +43,10 @@ var TwitchyViewModel = function() {
 
 	self.goToStream = function(stream) {
 		window.location.hash = 'Streams/' + stream.channel.name;
+	};
+
+	self.goToGame = function(data) {
+		window.location.hash = 'Games/' + data.game.name.split(' ').join('+');
 	};
 
 	// Generates the css necessary for tabbed navigation
@@ -84,13 +89,31 @@ var TwitchyViewModel = function() {
 		return className;
 	};
 
+	self.gameItemCss = function(index) {
+		var className = 'game-list-item';
+
+		if(index === 0)
+		{
+			className += ' big';
+		}
+
+		return className;
+	};
+
 	self.streamItemStyle = function(data) {
 		var css = {};
 
 		// Get the large preview and cover the div with it
 		css.backgroundImage = 'url("' + data.preview.large + '")';
-		css.backgroundSize = 'cover';
-		css.backgroundPosition = '50% 50%';
+
+		return css;
+	};
+
+	self.gameItemStyle = function(data) {
+		var css = {};
+
+		// Get the large preview and cover the div with it
+		css.backgroundImage = 'url("' + data.game.box.large + '")';
 
 		return css;
 	};
@@ -123,9 +146,13 @@ var TwitchyViewModel = function() {
 		}
 		self.currentStream(null);
 		self.streamList(null);
+		self.gameList(null);
 	};
 
 	self.listChannels = function(filter) {
+		var options = {};
+		options.limit = 15;
+
 		if(filter === 'Favorites')
 		{
 			// Get the list of favorites from storage and hit the API
@@ -133,30 +160,39 @@ var TwitchyViewModel = function() {
 		}
 		if(filter === 'Popular')
 		{
-			self.populateStreamList('streams');
+			self.populateStreamList('streams', options);
 		}
 		if(filter === 'Featured')
 		{
-			self.populateStreamList('streams/featured');
+			self.populateStreamList('streams/featured', options);
 		}
 	};
 
-	self.listGames = function(filter) {
-		if(filter)
+	self.listGames = function(gameName) {
+		var options = {};
+		if(gameName)
 		{
-			console.log(filter);
+			options.game = gameName;
+			options.limit = 15;
+			self.populateStreamList('streams', options);
 		}
 		else
 		{
-			console.log('all');
+			options.limit = 21;
+			self.populateGameList(options);
 		}
 	};
 
-	self.populateStreamList = function(endpoint) {
+	self.populateStreamList = function(endpoint, options) {
 		// Go through their settings to create the params, but for now just hard
 		// code it
-		var params = '';
-		params += '?limit=15';
+		var params = '?';
+		if(typeof options !== 'undefined')
+		{
+			$.each(options, function(key, val) {
+				params += key + '=' + val + '&';
+			});
+		}
 
 		$.ajax({
 			url: 'https://api.twitch.tv/kraken/' + endpoint + params,
@@ -176,6 +212,25 @@ var TwitchyViewModel = function() {
 				}
 			}
 			self.streamList(streams);
+		});
+	};
+
+	self.populateGameList = function(options) {
+		var params = '?';
+		if(typeof options !== 'undefined')
+		{
+			$.each(options, function(key, val) {
+				params += key + '=' + val + '&';
+			});
+		}
+
+		$.ajax({
+			url: 'https://api.twitch.tv/kraken/games/top' + params,
+			type: 'GET',
+			dataType: 'jsonp'
+		})
+		.done(function(response) {
+			self.gameList(response.top);
 		});
 	};
 
