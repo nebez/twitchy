@@ -141,29 +141,25 @@ li.tab-1-5 {
 	}
 }
 
-.stream-list {
+.stream-list,
+.game-list {
 	@include clearfix;
 
 	margin-top: 20px;
 	margin-bottom: 50px;
-	font-size: 0px;
 }
 
-.stream-list-item {
+.stream-list-item,
+.game-list-item {
 	position: relative;
 	float: left;
-	width: 25%;
-	height: 160px;
 	cursor: pointer;
 	opacity: 0.75;
+	background-size: cover;
+	background-position: 50% 50%;
 	border: 5px solid #101010; // Blend the border into the background color
 
 	transition: all 300ms ease;
-
-	&.big {
-		width: 50%;
-		height: 320px;
-	}
 
 	&.right {
 		float: right;
@@ -174,6 +170,30 @@ li.tab-1-5 {
 		opacity: 1;
 		border-color: #fff;
 		transform: scale(1.1);
+	}
+}
+
+.stream-list-item {
+	width: 25%;
+	height: 160px;
+
+	&.big {
+		width: 50%;
+		height: 320px;
+	}
+}
+
+.game-list-item {
+	width: 12.5%;
+	height: 330px;
+
+	&.big {
+		width: 25%;
+		height: 660px;
+
+		.stream-title {
+			font-size: 150%;
+		}
 	}
 }
 
