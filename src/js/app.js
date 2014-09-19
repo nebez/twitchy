@@ -275,11 +275,12 @@ var TwitchyViewModel = function() {
 	self.favoriteStream = function(data, e) {
 		// Prevent us from bubbling up to the openStream handler
 		e.stopImmediatePropagation();
+
+		// 
 	};
 
 	self.log = function(data, e) {
-		console.log(data);
-		console.log(e);
+		console.log(data, e);
 	};
 
 	// Hash Router
