@@ -1,5 +1,5 @@
 /* jshint strict: false */
-/* global document,window,$,ko,Sammy */
+/* global document,window,$,ko,Sammy,JsStorage */
 var TwitchyViewModel = function() {
 	// Members
 	var self = this;
@@ -15,12 +15,14 @@ var TwitchyViewModel = function() {
 	self.currentStream = ko.observable();
 	self.streamList = ko.observable();
 	self.gameList = ko.observable();
+	self.favorites = ko.observableArray(JsStorage.get('favorites'));
 
+	// Computed variables
 	self.listSubTabs = ko.pureComputed(function() {
 		return self.subTabs[self.currentTab()];
 	});
 
-	self.streamPlayerCss = ko.pureComputed(function() {
+	self.streamPlayerCss = ko.computed(function() {
 		if(self.currentStream() !== null)
 		{
 			return 'stream-player active';
@@ -29,6 +31,12 @@ var TwitchyViewModel = function() {
 		{
 			return 'stream-player';
 		}
+	}, self);
+
+	// Subscriptions
+	self.favorites.subscribe(function(val) {
+		// Save the favorites into storage
+		JsStorage.set('favorites', val);
 	});
 
 	// Behaviours
@@ -70,6 +78,18 @@ var TwitchyViewModel = function() {
 		{
 			return 'sub-tab';
 		}
+	};
+
+	self.favoriteStreamCss = function(data) {
+		return ko.computed(function() {
+			// If we've favorited this channel, style it differently
+			if(self.favorites().indexOf(data.channel.name) !== -1)
+			{
+				return 'stream-favorite favorited';
+			}
+
+			return 'stream-favorite';
+		}, self);
 	};
 
 	self.streamItemCss = function(index) {
@@ -166,8 +186,9 @@ var TwitchyViewModel = function() {
 
 		if(filter === 'Favorites')
 		{
-			// Get the list of favorites from storage and hit the API
-
+			// Get the list of favorites and hit the API
+			options.channel = self.favorites().join(',');
+			self.populateStreamList('streams', options);
 		}
 		if(filter === 'Popular')
 		{
@@ -276,7 +297,18 @@ var TwitchyViewModel = function() {
 		// Prevent us from bubbling up to the openStream handler
 		e.stopImmediatePropagation();
 
-		// 
+		var channel = data.channel.name;
+		// Is it already in the favorites?
+		if(self.favorites().indexOf(channel) === -1)
+		{
+			// Nope, add it
+			self.favorites.push(channel);
+		}
+		else
+		{
+			// Yeah, remove it
+			self.favorites.remove(channel);
+		}
 	};
 
 	self.log = function(data, e) {
