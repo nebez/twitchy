@@ -1,0 +1,729 @@
+/* line 55, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
+  display: block; }
+
+/* line 63, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+audio, canvas, video {
+  display: inline-block; }
+
+/* line 74, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/* line 84, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+[hidden], template {
+  display: none; }
+
+/* line 97, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+html {
+  background: #fff;
+  color: #000;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+/* line 113, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+html, button, input, select, textarea {
+  font-family: sans-serif; }
+
+/* line 119, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+body {
+  margin: 0; }
+
+/* line 132, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+a {
+  background: transparent; }
+  /* line 139, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+  a:focus {
+    outline: thin dotted; }
+  /* line 146, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+  a:hover, a:active {
+    outline: 0; }
+
+/* line 159, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/* line 164, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0; }
+
+/* line 169, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+h3 {
+  font-size: 1.17em;
+  margin: 1em 0; }
+
+/* line 174, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+h4 {
+  font-size: 1em;
+  margin: 1.33em 0; }
+
+/* line 179, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+h5 {
+  font-size: 0.83em;
+  margin: 1.67em 0; }
+
+/* line 184, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+h6 {
+  font-size: 0.75em;
+  margin: 2.33em 0; }
+
+/* line 192, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/* line 199, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+b, strong {
+  font-weight: bold; }
+
+/* line 211, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+dfn {
+  font-style: italic; }
+
+/* line 217, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/* line 236, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+code, kbd, pre, samp {
+  font-family: monospace, serif;
+  font-size: 1em; }
+
+/* line 246, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word; }
+
+/* line 254, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+/* line 271, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+q:before, q:after {
+  content: '';
+  content: none; }
+
+/* line 279, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+small {
+  font-size: 80%; }
+
+/* line 287, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+/* line 294, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+sup {
+  top: -0.5em; }
+
+/* line 298, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+sub {
+  bottom: -0.25em; }
+
+/* line 350, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+img {
+  border: 0; }
+
+/* line 359, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* line 369, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+figure {
+  margin: 0; }
+
+/* line 386, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/* line 397, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+legend {
+  border: 0;
+  padding: 0;
+  white-space: normal; }
+
+/* line 414, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline; }
+
+/* line 427, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+button, input {
+  line-height: normal; }
+
+/* line 437, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+button, select {
+  text-transform: none; }
+
+/* line 452, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+/* line 463, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+button[disabled], input[disabled] {
+  cursor: default; }
+
+/* line 473, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+input[type="checkbox"], input[type="radio"] {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+  padding: 0; }
+
+/* line 485, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
+/* line 496, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/* line 504, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/* line 513, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+textarea {
+  overflow: auto;
+  vertical-align: top; }
+
+/* line 524, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/normalize */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/**
+ * Mixin for clearfixing a parent element with floated children
+ */
+/**
+ * Mixin for easily creating responsive content based on the 4 sizes outlined
+ * in our variables: sm, md, lg, xl
+ */
+/**
+ * A quick shortcut for simply hiding something in certain screen resolutions
+ * (via display: none;) through our responsive mixin
+ */
+/**
+ * A mixin for making overflow-text fit the container viewport by truncating
+ * excess text with the ellipsis (...)
+ */
+/**
+ * A mixin for transitions that I don't feel like copy+pasting everwhere
+ */
+@font-face {
+  font-family: 'twitchy-fonts';
+  src: url('../font/twitchy-fonts.eot?15362397');
+  src: url('../font/twitchy-fonts.eot?15362397#iefix') format('embedded-opentype'), url('../font/twitchy-fonts.woff?15362397') format('woff'), url('../font/twitchy-fonts.ttf?15362397') format('truetype'), url('../font/twitchy-fonts.svg?15362397#twitchy-fonts') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'twitchy-fonts';
+    src: url('../font/twitchy-fonts.svg?15362397#twitchy-fonts') format('svg');
+  }
+}
+*/
+/* line 22, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/icon-fonts */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "twitchy-fonts";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: 0.2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */ }
+
+/* line 53, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/icon-fonts */
+.icon-arrows:before {
+  content: '\e800'; }
+
+/* '' */
+/* line 54, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/icon-fonts */
+.icon-favorite:before {
+  content: '\e803'; }
+
+/* '' */
+/* line 55, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/icon-fonts */
+.icon-unfavorite:before {
+  content: '\e804'; }
+
+/* '' */
+/* line 12, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+html {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box; }
+
+/* line 16, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+*, *:before, *:after {
+  -moz-box-sizing: inherit;
+       box-sizing: inherit; }
+
+/* line 20, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+html {
+  background-color: #101010;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-weight: 100; }
+
+/* line 27, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+body::-webkit-scrollbar {
+  display: none; }
+
+/* line 31, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+.container {
+  width: 95%;
+  max-width: 1900px;
+  margin: 0 auto; }
+
+/* line 37, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+header.logo {
+  width: 203px;
+  height: 80px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-image: url('../img/twitchy.png');
+  background-repeat: no-repeat;
+  font-size: 0px;
+  color: #101010; }
+  @media screen and (max-width: 640px) {
+    header.logo {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 0px; } }
+  @media screen and (min-width: 641px) and (max-width: 960px) {
+    header.logo {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 0px; } }
+
+/* line 55, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+.nav-wrapper {
+  text-align: center; }
+
+/* line 59, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+nav.main {
+  position: relative;
+  z-index: 0;
+  float: left;
+  margin-top: 45px;
+  text-align: left;
+  font-size: 0px; }
+  @media screen and (max-width: 640px) {
+    nav.main {
+      float: none;
+      display: inline-block;
+      margin: 20px auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; } }
+  @media screen and (min-width: 641px) and (max-width: 960px) {
+    nav.main {
+      float: none;
+      display: inline-block;
+      margin: 20px auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; } }
+  /* line 75, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  nav.main .link {
+    display: block;
+    width: 200px;
+    height: 90px;
+    font-size: 30px;
+    line-height: 125px;
+    padding-left: 10px;
+    text-decoration: none;
+    color: #777;
+    background-color: #53338e;
+    -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+            transform: scale(0.9);
+    cursor: pointer;
+    -webkit-transition: all 450ms ease;
+            transition: all 450ms ease; }
+    @media screen and (max-width: 640px) {
+      nav.main .link {
+        display: inline-block;
+        width: 140px;
+        height: 70px;
+        font-size: 22px;
+        line-height: 100px; } }
+    @media screen and (min-width: 641px) and (max-width: 960px) {
+      nav.main .link {
+        display: inline-block;
+        width: 170px;
+        height: 80px;
+        font-size: 26px;
+        line-height: 120px; } }
+    /* line 108, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+    nav.main .link:hover {
+      color: #aaa;
+      background-color: #6240a1; }
+    /* line 113, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+    nav.main .link.active {
+      position: relative;
+      z-index: 10;
+      background-color: #7f53cf;
+      color: #fff;
+      -webkit-transform: scale(1);
+          -ms-transform: scale(1);
+              transform: scale(1); }
+      /* line 124, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+      nav.main .link.active.item-0 ~ .active-border {
+        top: -8px; }
+      /* line 124, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+      nav.main .link.active.item-1 ~ .active-border {
+        top: 82px; }
+      /* line 124, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+      nav.main .link.active.item-2 ~ .active-border {
+        top: 172px; }
+      /* line 124, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+      nav.main .link.active.item-3 ~ .active-border {
+        top: 262px; }
+      /* line 124, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+      nav.main .link.active.item-4 ~ .active-border {
+        top: 352px; }
+      /* line 124, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+      nav.main .link.active.item-5 ~ .active-border {
+        top: 442px; }
+  /* line 131, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  nav.main .active-border {
+    position: absolute;
+    z-index: 5;
+    top: -8px;
+    left: -8px;
+    width: 216px;
+    height: 106px;
+    border: 4px solid #fff;
+    box-shadow: 0px 0px 30px 15px rgba(16, 16, 16, 0.75);
+    -webkit-transition: all 450ms ease;
+            transition: all 450ms ease; }
+    @media screen and (max-width: 640px) {
+      nav.main .active-border {
+        display: none; } }
+    @media screen and (min-width: 641px) and (max-width: 960px) {
+      nav.main .active-border {
+        display: none; } }
+
+/* line 148, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+section.content {
+  margin-left: 250px;
+  -webkit-transition: margin 300ms ease;
+          transition: margin 300ms ease; }
+  @media screen and (max-width: 640px) {
+    section.content {
+      margin-left: 0px; } }
+  @media screen and (min-width: 641px) and (max-width: 960px) {
+    section.content {
+      margin-left: 0px; } }
+
+/* line 158, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+ul.horizontal {
+  font-size: 0px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  /* line 164, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  ul.horizontal > li {
+    display: inline-block; }
+
+/* line 169, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+li.sub-tab {
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 20%;
+  font-size: 14px;
+  padding-left: 8px;
+  padding-bottom: 5px;
+  color: #6a6a6a;
+  border-bottom: 2px solid #6a6a6a;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease; }
+  @media screen and (max-width: 640px) {
+    li.sub-tab {
+      width: 33.333%; } }
+  @media screen and (min-width: 641px) and (max-width: 960px) {
+    li.sub-tab {
+      width: 33.333%; } }
+  @media screen and (min-width: 961px) and (max-width: 1366px) {
+    li.sub-tab {
+      width: 25%; } }
+  /* line 190, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  li.sub-tab:hover {
+    border-color: #ccc; }
+  /* line 194, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  li.sub-tab.active {
+    color: #fff;
+    border-color: #fff; }
+
+/* line 201, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+.stream-list, .game-list {
+  margin-top: 20px;
+  margin-bottom: 50px; }
+  /* line 5, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\/mixins */
+  .stream-list:after, .game-list:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* line 209, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+.stream-list-item, .game-list-item {
+  position: relative;
+  float: left;
+  cursor: pointer;
+  opacity: 0.75;
+  background-size: cover;
+  background-position: 50% 50%;
+  border: 5px solid #101010;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease; }
+  /* line 220, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  .stream-list-item.right, .game-list-item.right {
+    float: right; }
+  /* line 224, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  .stream-list-item:hover, .game-list-item:hover {
+    z-index: 10;
+    opacity: 1;
+    border-color: #fff;
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1); }
+    /* line 230, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+    .stream-list-item:hover .stream-favorite, .game-list-item:hover .stream-favorite {
+      opacity: 1; }
+
+/* line 236, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+.stream-list-item {
+  width: 25%;
+  height: 160px; }
+  @media screen and (max-width: 640px) {
+    .stream-list-item {
+      width: 100%;
+      height: 240px; } }
+  @media screen and (min-width: 641px) and (max-width: 960px) {
+    .stream-list-item {
+      height: 140px; } }
+  @media screen and (min-width: 961px) and (max-width: 1366px) {
+    .stream-list-item {
+      height: 140px; } }
+  /* line 249, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  .stream-list-item.big {
+    width: 50%;
+    height: 320px; }
+    @media screen and (max-width: 640px) {
+      .stream-list-item.big {
+        width: 100%;
+        height: 240px; } }
+    @media screen and (min-width: 641px) and (max-width: 960px) {
+      .stream-list-item.big {
+        height: 280px; } }
+    @media screen and (min-width: 961px) and (max-width: 1366px) {
+      .stream-list-item.big {
+        height: 280px; } }
+
+/* line 264, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+.game-list-item {
+  width: 12.5%;
+  height: 330px; }
+  @media screen and (max-width: 640px) {
+    .game-list-item {
+      width: 100%; } }
+  @media screen and (min-width: 641px) and (max-width: 960px) {
+    .game-list-item {
+      width: 20%;
+      height: 250px; } }
+  @media screen and (min-width: 961px) and (max-width: 1366px) {
+    .game-list-item {
+      width: 20%;
+      height: 250px; } }
+  /* line 277, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  .game-list-item.big {
+    width: 25%;
+    height: 660px; }
+    @media screen and (max-width: 640px) {
+      .game-list-item.big {
+        width: 100%;
+        height: 330px; } }
+    @media screen and (min-width: 641px) and (max-width: 960px) {
+      .game-list-item.big {
+        width: 40%;
+        height: 500px; } }
+    @media screen and (min-width: 961px) and (max-width: 1366px) {
+      .game-list-item.big {
+        width: 40%;
+        height: 500px; } }
+    /* line 291, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+    .game-list-item.big .stream-title {
+      font-size: 150%; }
+
+/* line 297, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+.stream-favorite {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 44px;
+  height: 44px;
+  opacity: 0;
+  border-radius: 50px;
+  font-size: 30px;
+  line-height: 45px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-transition: color 300ms ease, opacity 300ms ease, -webkit-transform 175ms ease;
+          transition: color 300ms ease, opacity 300ms ease, transform 175ms ease; }
+  /* line 314, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  .stream-favorite:hover {
+    color: #7f53cf; }
+  /* line 318, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  .stream-favorite:active {
+    -webkit-transform: scale(1.7);
+        -ms-transform: scale(1.7);
+            transform: scale(1.7); }
+  /* line 323, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  .stream-favorite.favorited {
+    opacity: 1;
+    color: #7f53cf; }
+    /* line 327, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+    .stream-favorite.favorited:hover {
+      color: #AB2B51; }
+      /* line 330, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+      .stream-favorite.favorited:hover .icon-favorite:before {
+        content: '\e804'; }
+
+/* line 337, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+.stream-info {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  padding: 5px 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ddd; }
+  /* line 346, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  .stream-info .stream-title {
+    font-weight: 600;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+    @media screen and (min-width: 641px) and (max-width: 960px) {
+      .stream-info .stream-title {
+        font-size: 14px; } }
+    @media screen and (min-width: 961px) and (max-width: 1366px) {
+      .stream-info .stream-title {
+        font-size: 14px; } }
+  /* line 356, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  .stream-info .stream-details {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+    @media screen and (min-width: 641px) and (max-width: 960px) {
+      .stream-info .stream-details {
+        font-size: 10px; } }
+    @media screen and (min-width: 961px) and (max-width: 1366px) {
+      .stream-info .stream-details {
+        font-size: 10px; } }
+
+/* line 366, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+.stream-viewers {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: inline;
+  font-size: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+  /* line 376, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  .stream-viewers:before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 5px;
+    background-color: red;
+    vertical-align: 5%;
+    border-radius: 10px; }
+
+/* line 390, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+.stream-player {
+  position: fixed;
+  z-index: 15;
+  left: 50%;
+  top: 50%;
+  width: 0%;
+  height: 0%;
+  opacity: 0;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease; }
+  /* line 401, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  .stream-player.active {
+    opacity: 1;
+    left: 1%;
+    top: 2%;
+    width: 98%;
+    height: 96%; }
+  /* line 409, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  .stream-player .close {
+    position: absolute;
+    z-index: 50;
+    top: -13px;
+    right: -13px;
+    padding: 0px 9px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #000;
+    border: 2px solid #fff;
+    cursor: pointer; }
+  /* line 423, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  .stream-player .video-wrapper {
+    position: relative;
+    z-index: 20;
+    height: 100%;
+    width: 100%; }
+  /* line 431, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  .stream-player .video-wrapper object, .stream-player .video-wrapper embed {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
