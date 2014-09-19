@@ -1,11 +1,11 @@
 var gulp = require('gulp');
 var clean = require('gulp-clean');
-var ghpages = require('gulp-gh-pages');
 var connect = require('gulp-connect');
 var jshint = require('gulp-jshint');
 var prefix = require('gulp-autoprefixer');
 var sass = require('gulp-sass');
 var stylish = require('jshint-stylish');
+var subtree = require('gulp-subtree');
 var util = require('gulp-util');
 
 gulp.task('default', ['connect', 'watch']);
@@ -17,8 +17,8 @@ gulp.task('clean', function() {
 });
 
 gulp.task('deploy', ['styles'], function() {
-	return gulp.src('./src/**/*.*')
-		.pipe(ghpages());
+	return gulp.src('./src/')
+		.pipe(subtree());
 });
 
 gulp.task('watch', function() {

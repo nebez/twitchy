@@ -7,6 +7,7 @@
     "gulp-gh-pages": "^0.3.4",
     "gulp-jshint": "^1.8.4",
     "gulp-sass": "^0.7.3",
+    "gulp-subtree": "^0.1.0",
     "gulp-util": "^3.0.1",
     "jshint-stylish": "^0.4.0"
   }
