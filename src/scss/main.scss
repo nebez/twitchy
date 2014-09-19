@@ -1,11 +1,12 @@
 // Media query declarations for break points
 $breakpoint-sm: 640px;
-$breakpoint-md: 920px;
+$breakpoint-md: 960px;
 $breakpoint-lg: 1366px;
 
 
 @import 'normalize';
 @import 'mixins';
+@import 'icon-fonts';
 
 // Apply a natural box model layout to all elemnts
 html {
@@ -179,7 +180,7 @@ li.sub-tab {
 	transition: all 300ms ease;
 
 	@include responsive(sm, md) {
-		width: 33%;
+		width: 33.333%;
 	}
 
 	@include responsive(lg) {
@@ -286,6 +287,25 @@ li.sub-tab {
 		.stream-title {
 			font-size: 150%;
 		}
+	}
+}
+
+.stream-favorite {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 44px;
+	height: 44px;
+	border-radius: 50px;
+	font-size: 30px;
+	line-height: 45px;
+	text-align: center;
+	background-color: rgba(#000, 0.2);
+
+	transition: all 300ms ease;
+
+	&:hover {
+		color: #7f53cf;
 	}
 }
 

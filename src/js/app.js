@@ -109,11 +109,22 @@ var TwitchyViewModel = function() {
 		return css;
 	};
 
-	self.gameItemStyle = function(data) {
+	self.gameItemStyle = function(data, index) {
 		var css = {};
 
 		// Get the large preview and cover the div with it
-		css.backgroundImage = 'url("' + data.game.box.large + '")';
+		if(index === 0)
+		{
+			// Get a higher res image for the big thumbnail
+			var url = data.game.box.template;
+			url = url.replace('{height}', '660').replace('{width}', '472');
+
+			css.backgroundImage = 'url("' + url + '")';
+		}
+		else
+		{
+			css.backgroundImage = 'url("' + data.game.box.large + '")';
+		}
 
 		return css;
 	};
@@ -261,8 +272,14 @@ var TwitchyViewModel = function() {
 		window.location.hash = newHash;
 	};
 
-	self.log = function(data) {
+	self.favoriteStream = function(data, e) {
+		// Prevent us from bubbling up to the openStream handler
+		e.stopImmediatePropagation();
+	};
+
+	self.log = function(data, e) {
 		console.log(data);
+		console.log(e);
 	};
 
 	// Hash Router
