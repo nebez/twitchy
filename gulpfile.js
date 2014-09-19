@@ -1,18 +1,24 @@
 var gulp = require('gulp');
-var connect = require('gulp-connect');
-var sass = require('gulp-sass');
-var prefix = require('gulp-autoprefixer');
-var util = require('gulp-util');
 var clean = require('gulp-clean');
+var ghpages = require('gulp-gh-pages');
+var connect = require('gulp-connect');
 var jshint = require('gulp-jshint');
+var prefix = require('gulp-autoprefixer');
+var sass = require('gulp-sass');
 var stylish = require('jshint-stylish');
+var util = require('gulp-util');
 
 gulp.task('default', ['connect', 'watch']);
 
 gulp.task('clean', function() {
-	return gulp.src(['./dist', './src/css'], { read: false })
+	return gulp.src(['./src/css'], { read: false })
 		.pipe(clean())
 		.on('error', util.log);
+});
+
+gulp.task('deploy', ['styles'], function() {
+	return gulp.src('./src/**/*.*')
+		.pipe(ghpages());
 });
 
 gulp.task('watch', function() {
