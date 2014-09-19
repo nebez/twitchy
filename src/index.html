@@ -15,14 +15,16 @@
 				twitchy
 			</header>
 
-			<nav class="main">
-				<!-- ko foreach: tabs -->
-					<div data-bind="text: $data,
-						css: $root.navLinkCss($data, $index()),
-						click: $root.goToTab"></div>
-				<!-- /ko -->
-				<div class="active-border"></div>
-			</nav>
+			<div class="nav-wrapper">
+				<nav class="main">
+					<!-- ko foreach: tabs -->
+						<div data-bind="text: $data,
+							css: $root.navLinkCss($data, $index()),
+							click: $root.goToTab"></div>
+					<!-- /ko -->
+					<div class="active-border"></div>
+				</nav>
+			</div>
 
 			<section class="content">
 				<ul class="horizontal" data-bind="foreach: listSubTabs">

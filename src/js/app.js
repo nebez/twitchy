@@ -64,11 +64,11 @@ var TwitchyViewModel = function() {
 	self.subNavLinkCss = function(tabName) {
 		if(tabName === self.currentSubTab())
 		{
-			return 'active tab-1-5';
+			return 'active sub-tab';
 		}
 		else
 		{
-			return 'tab-1-5';
+			return 'sub-tab';
 		}
 	};
 

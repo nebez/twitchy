@@ -1,6 +1,6 @@
 // Media query declarations for break points
 $breakpoint-sm: 640px;
-$breakpoint-md: 1024px;
+$breakpoint-md: 920px;
 $breakpoint-lg: 1366px;
 
 
@@ -43,6 +43,16 @@ header.logo {
 	// Hide the text.
 	font-size: 0px;
 	color: #101010;
+
+	@include responsive(sm, md) {
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 0px;
+	}
+}
+
+.nav-wrapper {
+	text-align: center;
 }
 
 nav.main {
@@ -50,6 +60,16 @@ nav.main {
 	z-index: 0;
 	float: left;
 	margin-top: 45px;
+	text-align: left;
+	font-size: 0px;
+
+	@include responsive(sm, md) {
+		float: none;
+		display: inline-block;
+		margin: 20px auto;
+
+		@include ellipsis;
+	}
 
 	.link {
 		display: block;
@@ -63,6 +83,24 @@ nav.main {
 		background-color: #53338e;
 		transform: scale(0.90);
 		cursor: pointer;
+
+		@include responsive(sm) {
+			display: inline-block;
+
+			width: 140px;
+			height: 70px;
+			font-size: 22px;
+			line-height: 100px;
+		}
+
+		@include responsive(md) {
+			display: inline-block;
+
+			width: 170px;
+			height: 80px;
+			font-size: 26px;
+			line-height: 120px;
+		}
 
 		transition: all 450ms ease;
 
@@ -81,8 +119,7 @@ nav.main {
 
 			// Generate a few item border states, increase this number if we end
 			// up with more nav items
-			@for $i from 0 through 5
-			{
+			@for $i from 0 through 5 {
 				&.item-#{$i} ~ .active-border {
 					top: -8px + ($i * 90);
 				}
@@ -100,11 +137,21 @@ nav.main {
 		border: 4px solid #fff;
 		box-shadow: 0px 0px 30px 15px rgba(#101010, 0.75);
 		transition: all 450ms ease;
+
+		@include responsive(sm, md) {
+			display: none;
+		}
 	}
 }
 
 section.content {
 	margin-left: 250px;
+
+	transition: margin 300ms ease;
+
+	@include responsive(sm, md) {
+		margin-left: 0px;
+	}
 }
 
 ul.horizontal {
@@ -118,7 +165,7 @@ ul.horizontal {
 	}
 }
 
-li.tab-1-5 {
+li.sub-tab {
 	font-weight: 600;
 	text-transform: uppercase;
 	width: 20%;
@@ -130,6 +177,14 @@ li.tab-1-5 {
 	cursor: pointer;
 
 	transition: all 300ms ease;
+
+	@include responsive(sm, md) {
+		width: 33%;
+	}
+
+	@include responsive(lg) {
+		width: 25%;
+	}
 
 	&:hover {
 		border-color: #ccc;
@@ -177,9 +232,27 @@ li.tab-1-5 {
 	width: 25%;
 	height: 160px;
 
+	@include responsive(sm) {
+		width: 100%;
+		height: 240px;
+	}
+
+	@include responsive(md, lg) {
+		height: 140px;
+	}
+
 	&.big {
 		width: 50%;
 		height: 320px;
+
+		@include responsive(sm) {
+			width: 100%;
+			height: 240px;
+		}
+
+		@include responsive(md, lg) {
+			height: 280px;
+		}
 	}
 }
 
@@ -187,9 +260,28 @@ li.tab-1-5 {
 	width: 12.5%;
 	height: 330px;
 
+	@include responsive(sm) {
+		width: 100%;
+	}
+
+	@include responsive(md, lg) {
+		width: 20%;
+		height: 250px;
+	}
+
 	&.big {
 		width: 25%;
 		height: 660px;
+
+		@include responsive(sm) {
+			width: 100%;
+			height: 330px;
+		}
+
+		@include responsive(md, lg) {
+			width: 40%;
+			height: 500px;
+		}
 
 		.stream-title {
 			font-size: 150%;
@@ -210,11 +302,19 @@ li.tab-1-5 {
 		font-weight: 600;
 		font-size: 18px;
 		@include ellipsis;
+
+		@include responsive(md, lg) {
+			font-size: 14px;
+		}
 	}
 
 	.stream-details {
 		font-size: 12px;
 		@include ellipsis;
+
+		@include responsive(md, lg) {
+			font-size: 10px;
+		}
 	}
 }
 
