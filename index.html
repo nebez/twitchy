@@ -40,6 +40,7 @@
 							style: $root.streamItemStyle($data),
 							click: $root.goToStream">
 
+							<div class="stream-favorite" data-bind="click: $root.favoriteStream"><i class="icon-favorite"></i></div>
 							<div class="stream-viewers" data-bind="text: viewers"></div>
 							<div class="stream-info">
 								<div class="stream-title" data-bind="text: channel.display_name"></div>
@@ -55,7 +56,7 @@
 					<div class="game-list">
 					<!-- ko foreach: $root.gameList -->
 						<div data-bind="css: $root.gameItemCss($index()),
-							style: $root.gameItemStyle($data),
+							style: $root.gameItemStyle($data, $index()),
 							click: $root.goToGame">
 
 							<div class="stream-viewers" data-bind="text: viewers"></div>
