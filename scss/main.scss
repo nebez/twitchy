@@ -226,6 +226,10 @@ li.sub-tab {
 		opacity: 1;
 		border-color: #fff;
 		transform: scale(1.1);
+
+		.stream-favorite {
+			opacity: 1;
+		}
 	}
 }
 
@@ -296,6 +300,7 @@ li.sub-tab {
 	top: 10px;
 	width: 44px;
 	height: 44px;
+	opacity: 0;
 	border-radius: 50px;
 	font-size: 30px;
 	line-height: 45px;
@@ -305,6 +310,12 @@ li.sub-tab {
 	transition: all 300ms ease;
 
 	&:hover {
+		color: #7f53cf;
+	}
+
+	// If it's already favorited, always show it
+	&.favorited {
+		opacity: 1;
 		color: #7f53cf;
 	}
 }
@@ -369,7 +380,6 @@ li.sub-tab {
 	top: 50%;
 	width: 0%;
 	height: 0%;
-	background-color: rgba(#000, 0.95);
 	opacity: 0;
 
 	transition: all 300ms ease;
@@ -385,8 +395,8 @@ li.sub-tab {
 	.close {
 		position: absolute;
 		z-index: 50;
-		top: -10px;
-		right: -10px;
+		top: -13px;
+		right: -13px;
 		padding: 0px 9px;
 		font-size: 20px;
 		font-weight: 600;
