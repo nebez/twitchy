@@ -187,7 +187,9 @@ var TwitchyViewModel = function() {
 		if(filter === 'Favorites')
 		{
 			// Get the list of favorites and hit the API
-			options.channel = 'nonexistentchannel' + self.favorites().join(',');
+			// We need to stuff at least one channel in there (even a fake one)
+			// for the ?channel option to trigger in the API
+			options.channel = 'nonexistentchannel,' + self.favorites().join(',');
 			self.populateStreamList('streams', options);
 		}
 		if(filter === 'Popular')
