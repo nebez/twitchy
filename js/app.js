@@ -18,7 +18,7 @@ var TwitchyViewModel = function() {
 	self.favorites = ko.observableArray(JsStorage.get('favorites'));
 
 	// Computed variables
-	self.listSubTabs = ko.pureComputed(function() {
+	self.listSubTabs = ko.computed(function() {
 		return self.subTabs[self.currentTab()];
 	});
 
@@ -309,6 +309,10 @@ var TwitchyViewModel = function() {
 			// Yeah, remove it
 			self.favorites.remove(channel);
 		}
+	};
+
+	self.refresh = function() {
+		router.refresh();
 	};
 
 	self.log = function(data, e) {
