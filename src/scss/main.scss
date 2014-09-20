@@ -437,3 +437,24 @@ li.sub-tab {
 		height: 100%;
 	}
 }
+
+#refresh {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	font-size: 30px;
+	cursor: pointer;
+	opacity: 0.5;
+
+	transition: all 300ms ease;
+
+	&:hover {
+		opacity: 1;
+		transform: scale(1.5) rotate(135deg);
+	}
+
+	&:active {
+		color: #7f53cf;
+		transform: scale(1.5) rotate(270deg);
+	}
+}

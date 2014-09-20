@@ -727,3 +727,26 @@ li.sub-tab {
     left: 0;
     width: 100%;
     height: 100%; }
+
+/* line 441, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+#refresh {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 30px;
+  cursor: pointer;
+  opacity: 0.5;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease; }
+  /* line 451, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  #refresh:hover {
+    opacity: 1;
+    -webkit-transform: scale(1.5) rotate(135deg);
+        -ms-transform: scale(1.5) rotate(135deg);
+            transform: scale(1.5) rotate(135deg); }
+  /* line 456, C:\Users\Nebez\Documents\GitHub\twitchy\src\scss\main.scss */
+  #refresh:active {
+    color: #7f53cf;
+    -webkit-transform: scale(1.5) rotate(270deg);
+        -ms-transform: scale(1.5) rotate(270deg);
+            transform: scale(1.5) rotate(270deg); }
