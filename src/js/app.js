@@ -1,5 +1,6 @@
-/* jshint strict: false */
 /* global document,window,$,ko,Sammy,JsStorage */
+'use strict';
+
 var TwitchyViewModel = function() {
 	// Members
 	var self = this;

@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 var clean = require('gulp-clean');
 var connect = require('gulp-connect');
