@@ -4,7 +4,7 @@
 var TwitchyViewModel = function() {
 	// Members
 	var self = this;
-	self.tabs = ['Games', 'Channels', 'Settings'];
+	self.tabs = ['Games', 'Channels'];
 	self.subTabs = {
 		Channels: ['Popular', 'Featured', 'Favorites'],
 		Games: [],
